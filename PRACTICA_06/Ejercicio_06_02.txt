@@ -1,0 +1,45 @@
+// Materia: Programación I, Paralelo 4
+// Autor: Carla Daniela Montoya Huaranca
+// Carrera: Ingeniería Biomédica
+// Fecha de Creación: 08/09/2026
+
+#include <iostream>
+using namespace std;
+
+void tiempo(int totalSeg, int &horas, int &min, int &seg);
+
+int main()
+{
+    int totalSeg = 0;
+    int horas = 0, min = 0, seg = 0;
+
+    do
+    {
+        cout << "Ingrese el numero total de segundos: ";
+        cin >> totalSeg;
+
+        if (totalSeg < 0)
+        {
+            cout << "La cantidad no puede ser negativa." << endl;
+        }
+
+    } while (totalSeg < 0);
+
+    tiempo(totalSeg, horas, min, seg);
+
+    cout << "\nTiempo equivalente:" << endl;
+    cout << "Horas: " << horas << endl;
+    cout << "Minutos: " << min << endl;
+    cout << "Segundos: " << seg << endl;
+
+    return 0;
+}
+
+void tiempo(int totalSeg, int &horas, int &min, int &seg)
+{
+    horas = totalSeg / 3600;
+    totalSeg = totalSeg % 3600;
+
+    min = totalSeg / 60;
+    seg = totalSeg % 60;
+}

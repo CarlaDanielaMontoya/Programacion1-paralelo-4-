@@ -1,0 +1,41 @@
+// Materia: Programación I, Paralelo 4
+// Autor: Carla Daniela Montoya Huaranca
+// Carrera: Ingeniería Biomédica
+// Fecha de Creación: 08/09/2026
+
+#include <iostream>
+using namespace std;
+
+void intercambiar(int &num1, int &num2);
+
+int main()
+{
+    int num1 = 0, num2 = 0;
+
+    cout << "Ingrese el primer numero: ";
+    cin >> num1;
+
+    cout << "Ingrese el segundo numero: ";
+    cin >> num2;
+
+    cout << "\nAntes del intercambio:" << endl;
+    cout << "Primer numero: " << num1 << endl;
+    cout << "Segundo numero: " << num2 << endl;
+
+    intercambiar(num1, num2);
+
+    cout << "\nDespues del intercambio:" << endl;
+    cout << "Primer numero: " << num1 << endl;
+    cout << "Segundo numero: " << num2 << endl;
+
+    return 0;
+}
+
+void intercambiar(int &num1, int &num2)
+{
+    int aux = 0;
+
+    aux = num1;
+    num1 = num2;
+    num2 = aux;
+}
