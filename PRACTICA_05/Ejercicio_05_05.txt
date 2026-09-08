@@ -1,0 +1,65 @@
+// Materia: Programación I, Paralelo 4
+// Autor: Carla Daniela Montoya Huaranca
+// Fecha creación: 08/09/2026
+// Número de ejercicio: 5
+
+#include <iostream>
+using namespace std;
+
+double calcularArea(double lado);
+double calcularArea(double base, double altura);
+float calcularArea(float radio, float PI);
+
+int main()
+{
+    double lado = 0, base = 0, altura = 0;
+    float radio = 0;
+    float PI = 3.14159265f;
+
+    do
+    {
+        cout << "Ingrese el lado del cuadrado: ";
+        cin >> lado;
+    } while (lado <= 0);
+
+    cout << "Area del cuadrado: ";
+    cout << calcularArea(lado) << endl;
+
+    do
+    {
+        cout << "Ingrese la base del rectangulo: ";
+        cin >> base;
+
+        cout << "Ingrese la altura del rectangulo: ";
+        cin >> altura;
+    } while (base <= 0 || altura <= 0);
+
+    cout << "Area del rectangulo: ";
+    cout << calcularArea(base, altura) << endl;
+
+    do
+    {
+        cout << "Ingrese el radio del circulo: ";
+        cin >> radio;
+    } while (radio <= 0);
+
+    cout << "Area del circulo: ";
+    cout << calcularArea(radio, PI) << endl;
+
+    return 0;
+}
+
+double calcularArea(double lado)
+{
+    return lado * lado;
+}
+
+double calcularArea(double base, double altura)
+{
+    return base * altura;
+}
+
+float calcularArea(float radio, float PI)
+{
+    return PI * radio * radio;
+}

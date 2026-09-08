@@ -1,0 +1,83 @@
+// Materia: Programación I, Paralelo 4
+// Autor: Carla Daniela Montoya Huaranca
+// Fecha creación: 08/09/2026
+// Número de ejercicio: 12
+
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+void generarCantidades(int n, int &unAnio,
+                       int &dosAnios, int &tresAnios);
+
+int calcularPaniales(int unAnio, int dosAnios, int tresAnios);
+
+int main()
+{
+    int n = 0;
+    int unAnio = 0, dosAnios = 0, tresAnios = 0;
+    int totalPaniales = 0;
+
+    srand(time(0));
+
+    do
+    {
+        cout << "Ingrese la cantidad de ninios: ";
+        cin >> n;
+    } while (n < 0);
+
+    generarCantidades(n, unAnio, dosAnios, tresAnios);
+
+    totalPaniales = calcularPaniales(unAnio, dosAnios, tresAnios);
+
+    cout << "Ninios de 1 anio: " << unAnio << endl;
+    cout << "Ninios de 2 anios: " << dosAnios << endl;
+    cout << "Ninios de 3 anios: " << tresAnios << endl;
+
+    cout << "Total de ninios: ";
+    cout << unAnio + dosAnios + tresAnios << endl;
+
+    cout << "Consumo diario de paniales: " << totalPaniales << endl;
+
+    return 0;
+}
+
+void generarCantidades(int n, int &unAnio,
+                       int &dosAnios, int &tresAnios)
+{
+    int edad = 0;
+    unAnio = 0;
+    dosAnios = 0;
+    tresAnios = 0;
+
+    for (int i = 1; i <= n; i++)
+    {
+        edad = rand() % 3 + 1;
+
+        if (edad == 1)
+        {
+            unAnio++;
+        }
+        else
+        {
+            if (edad == 2)
+            {
+                dosAnios++;
+            }
+            else
+            {
+                tresAnios++;
+            }
+        }
+    }
+}
+
+int calcularPaniales(int unAnio, int dosAnios, int tresAnios)
+{
+    int total = 0;
+
+    total = unAnio * 6 + dosAnios * 3 + tresAnios * 2;
+
+    return total;
+}

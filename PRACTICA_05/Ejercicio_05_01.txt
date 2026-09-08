@@ -1,0 +1,39 @@
+// Materia: Programación I, Paralelo 4
+// Autor: Carla Daniela Montoya Huaranca
+// Fecha creación: 08/09/2026
+// Número de ejercicio: 1
+
+#include <iostream>
+using namespace std;
+
+void IntercambiarValores(int &a, int &b);
+
+int main()
+{
+    int a = 0, b = 0;
+
+    cout << "Ingrese el primer numero: ";
+    cin >> a;
+
+    cout << "Ingrese el segundo numero: ";
+    cin >> b;
+
+    cout << "Antes del intercambio:" << endl;
+    cout << "a = " << a << endl;
+    cout << "b = " << b << endl;
+
+    IntercambiarValores(a, b);
+
+    cout << "Despues del intercambio:" << endl;
+    cout << "a = " << a << endl;
+    cout << "b = " << b << endl;
+
+    return 0;
+}
+
+void IntercambiarValores(int &a, int &b)
+{
+    int auxiliar = a;
+    a = b;
+    b = auxiliar;
+}

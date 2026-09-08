@@ -1,0 +1,58 @@
+// Materia: Programación I, Paralelo 4
+// Autor: Carla Daniela Montoya Huaranca
+// Fecha creación: 08/09/2026
+// Número de ejercicio: 8
+
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+void lanzarMoneda(int n, int &caras, int &cruces);
+
+int main()
+{
+    int n = 0, caras = 0, cruces = 0;
+    double porcentajeCaras = 0, porcentajeCruces = 0;
+
+    srand(time(0));
+
+    do
+    {
+        cout << "Ingrese la cantidad de lanzamientos: ";
+        cin >> n;
+    } while (n <= 0);
+
+    lanzarMoneda(n, caras, cruces);
+
+    porcentajeCaras = caras * 100.0 / n;
+    porcentajeCruces = cruces * 100.0 / n;
+
+    cout << "Cantidad de caras: " << caras << endl;
+    cout << "Cantidad de cruces: " << cruces << endl;
+    cout << "Porcentaje de caras: " << porcentajeCaras << "%" << endl;
+    cout << "Porcentaje de cruces: " << porcentajeCruces << "%" << endl;
+
+    return 0;
+}
+
+void lanzarMoneda(int n, int &caras, int &cruces)
+{
+    int resultado = 0;
+    caras = 0;
+    cruces = 0;
+
+    for (int i = 1; i <= n; i++)
+    {
+        resultado = rand() % 2;
+
+        if (resultado == 0)
+        {
+            caras++;
+        }
+        else
+        {
+            cruces++;
+        }
+    }
+}

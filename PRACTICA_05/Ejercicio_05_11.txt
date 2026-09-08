@@ -1,0 +1,96 @@
+// Materia: Programación I, Paralelo 4
+// Autor: Carla Daniela Montoya Huaranca
+// Fecha creación: 08/09/2026
+// Número de ejercicio: 11
+
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+bool esPrimo(int numero);
+
+int main()
+{
+    int n = 0, numero = 0;
+    int cantidadImpares = 0, mayorPrimo = 0;
+    double sumaPares = 0, sumaImpares = 0, promedioImpares = 0;
+
+    srand(time(0));
+
+    do
+    {
+        cout << "Ingrese la cantidad de numeros: ";
+        cin >> n;
+    } while (n <= 0);
+
+    for (int i = 1; i <= n; i++)
+    {
+        numero = rand() % 1000 + 1;
+
+        cout << "Numero " << i << ": " << numero << endl;
+
+        if (numero % 2 == 0)
+        {
+            sumaPares = sumaPares + numero;
+        }
+        else
+        {
+            sumaImpares = sumaImpares + numero;
+            cantidadImpares++;
+        }
+
+        if (esPrimo(numero))
+        {
+            if (numero > mayorPrimo)
+            {
+                mayorPrimo = numero;
+            }
+        }
+    }
+
+    cout << "Sumatoria de los pares: " << sumaPares << endl;
+
+    if (cantidadImpares > 0)
+    {
+        promedioImpares = sumaImpares / cantidadImpares;
+        cout << "Promedio de los impares: " << promedioImpares << endl;
+    }
+    else
+    {
+        cout << "No se generaron numeros impares." << endl;
+    }
+
+    if (mayorPrimo > 0)
+    {
+        cout << "Mayor numero primo: " << mayorPrimo << endl;
+    }
+    else
+    {
+        cout << "No se generaron numeros primos." << endl;
+    }
+
+    return 0;
+}
+
+bool esPrimo(int numero)
+{
+    int divisores = 0;
+
+    for (int i = 1; i <= numero; i++)
+    {
+        if (numero % i == 0)
+        {
+            divisores++;
+        }
+    }
+
+    if (divisores == 2)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
